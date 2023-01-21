@@ -1,0 +1,6 @@
+*.csv
+*.gz
+week_1_basics_and_setup/1_docker_sql/.ipynb_checkpoints
+week_1_basics_and_setup/1_docker_sql/data_pgadmin
+week_1_basics_and_setup/1_docker_sql/ny-taxi-volume
+

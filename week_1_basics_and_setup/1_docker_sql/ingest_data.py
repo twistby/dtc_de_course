@@ -40,19 +40,22 @@ def main(params):
 
     df.to_sql(name=table_name, con=engine, if_exists='append')
 
-
-    while True:
+    iteration = True
+    while iteration:
         time_start = time()
-        
-        df = next(df_iter)
-        df.lpep_pickup_datetime = pd.to_datetime(df.lpep_pickup_datetime)
-        df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
-        
-        df.to_sql(name=table_name, con=engine, if_exists='append')
-        
-        time_end = time()
-        
-        print('inserted chunk, took %.3f seconds' % (time_end - time_start))
+        try:
+            df = next(df_iter)
+            df.lpep_pickup_datetime = pd.to_datetime(df.lpep_pickup_datetime)
+            df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
+            
+            df.to_sql(name=table_name, con=engine, if_exists='append')
+            
+            time_end = time()
+            
+            print('inserted chunk, took %.3f seconds' % (time_end - time_start))
+        except StopIteration:
+            iteration = False
+
 
 
 

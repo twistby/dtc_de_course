@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dtc-de-course"
+version = "0.1.0"
+description = "data talk club zoomcamp"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "dtc_de_course"}]
+
+[tool.poetry.dependencies]
+python = "3.11.1"
+google-cloud-storage = "^2.7.0"
+pandas = "^1.5.3"
+SQLAlchemy = "^1.4.46"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

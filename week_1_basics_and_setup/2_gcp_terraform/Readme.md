@@ -37,13 +37,14 @@ Setting up **main.tf ** in sections "provider", "resource", ...
 >**Make sure that this file in .gitignore**
 
 Terraform comands:
-    `terraform init`: initialize and install
 
-    `terraform plan`: Match changes against the previus state
+`terraform init`: initialize and install
 
-    `terraform apply`: Apply changes to cloud
+`terraform plan`: Match changes against the previus state
 
-    `terraform destroy`: Remove stack from cloud
+`terraform apply`: Apply changes to cloud
+
+`terraform destroy`: Remove stack from cloud
 
 
 After `terraform apply` GCP resources created.
@@ -88,9 +89,9 @@ After that we can connect to instance with
     `ssh de-zoomcamp`
 
 
-#### Setting up GCP VM instance
+### Setting up GCP VM instance
 
-##### Installing Anaconda
+#### Installing Anaconda
 
 `wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh`
 
@@ -102,7 +103,7 @@ To apply changes after installation
 
 or logout and login
 
-##### Insatlling Docker
+#### Insatlling Docker
 `sudo apt-get update`
 
 `sudo apt-get install docker.io`
@@ -115,7 +116,7 @@ or logout and login
 
 and now we need reconnect to instance
 
-##### Installing Docker compose
+#### Installing Docker compose
 In ~
 
 `mkdir bin`
@@ -137,7 +138,7 @@ CTRL+X to exit
 To apply changes
 `source .bashrc`
 
-##### Installing pgcli with pip
+#### Installing pgcli with pip
 `pip install pgcli`
 
 ##### Installing pgcli with anaconda 
@@ -146,7 +147,7 @@ To apply changes
 >I was not able to test this method because the conda was hanging on the "Solving enviroment:"
 Judging by the information this is a problem with the latest conda release.
 
-##### Installing Terraform
+#### Installing Terraform
 `wget https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_amd64.zip`
 
 Installing unzip
@@ -182,12 +183,12 @@ Run terraform
 Resource creation completed!
 
 
-#### Connecting to instance with VSC
+### Connecting to instance with VSC
 
 Install Remote SSH VSC plugin
 Shift+Command+P -> Connect to Host -> de_zoomcamp
 
-##### Forwarding ports to local computer in VSC
+#### Forwarding ports to local computer in VSC
 Add manualy 8080 for pgadmin and 5432 for postgres
 After start Jupyter notebook forwarding of two ports were added automaticaly.
 

@@ -96,13 +96,13 @@ To copy a python script into a container and execute it when the container start
 
 Running postgres in container:
 
- `docker run -it \ `
-             `-e POSTGRES_USER="root" \ `
-            ` -e POSTGRES_PASSWORD="root" \ `
-            ` -e POSTGRES_DB="ny_taxi" \ `
-            ` -v "/Users/andrey/git/dtc_de_course/week_1_basics_and_setup/1_docker_sql/ny-taxi-volume:/var/lib/postgresql/data:/var/lib/postgresql/data" \ `
-            ` -p 5431:5432 \ `
-        ` postgres:13 ` `
+	docker run -it \
+		-e POSTGRES_USER="root" \
+		-e POSTGRES_PASSWORD="root" \
+		-e POSTGRES_DB="ny_taxi" \
+		-v "/Users/andrey/git/dtc_de_course/week_1_basics_and_setup/1_docker_sql/ny-taxi-volume:/var/lib/postgresql/data:/var/lib/postgresql/data" \
+		-p 5431:5432 \
+	postgres:13
 
 >"-v" directory, where sotore database out of container
 
@@ -123,11 +123,11 @@ Using Jupyter notebook to ingest data from csv file and load into the database i
 
 Runnig PGAdmin container
 
-   `docker run -it \ `
-     `-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \ `
-     `-e PGADMIN_DEFAULT_PASSWORD="root" \ `
-     `-p 8080:80 \ `
-     ` dpage/pgadmin4 `
+	docker run -it \
+		-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+		-e PGADMIN_DEFAULT_PASSWORD="root" \
+		-p 8080:80 \
+	dpage/pgadmin4 
 
 Running PGAdmin in local browser: localhost:8080
 
@@ -140,26 +140,26 @@ PGAdmin cannot connect to the base because it is trying to find the base in its 
 
 To run Postgres container in network: 
  
-`docker run -it \`
-       ` -e POSTGRES_USER="root" \`
-        `-e POSTGRES_PASSWORD="root" \`
-        `-e POSTGRES_DB="ny_taxi" \`
-        `-v "/Users/andrey/git/dtc_de_course/week_1_basics_and_setup/1_docker_sql/ny-taxi-volume:/var/lib/postgresql/data:/var/lib/postgresql/data" \`
-        `-p 5431:5432 \`
-    `--network=pg-network \`
-    `--name pg-database \`
-    `postgres:13`
+	docker run -it 
+			-e POSTGRES_USER="root" 
+			-e POSTGRES_PASSWORD="root" \
+			-e POSTGRES_DB="ny_taxi" \
+			-v "/Users/andrey/git/dtc_de_course/week_1_basics_and_setup/1_docker_sql/ny-taxi-volume:/var/lib/postgresql/data:/var/lib/postgresql/data" \
+			-p 5431:5432 \
+		--network=pg-network \
+		--name pg-database \
+	postgres:13
 
 
 To run PGAdmin container in network:
 
-  `docker run -it \`
-        `-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \`
-        `-e PGADMIN_DEFAULT_PASSWORD="root" \`
-        `-p 8080:80 \`
-    `--network=pg-network \`
-   ` --name pgadmin \`
-    `dpage/pgadmin4`
+	docker run -it \
+			-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+			-e PGADMIN_DEFAULT_PASSWORD="root" \
+			-p 8080:80 \
+		--network=pg-network \
+		--name pgadmin \
+	dpage/pgadmin4
 
 
 
@@ -174,14 +174,14 @@ To pass to the script arguments using argparse
 `URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"`
 
  - Runnig script
- `python ingest_data.py \`
- ` --user=root \`
- `   --password=root \`
- `  --host=localhost \`
- `   --port=5432`
- `  --dbase=ny_taxi \`
- ` --table_name=yellow_taxi_data \`
- ` --url=${URL}`
+		python ingest_data.py \
+			--user=root \
+			--password=root \
+			--host=localhost \
+			--port=5432
+			--dbase=ny_taxi \
+			--table_name=yellow_taxi_data \
+			--url=${URL}
 
 
 ####Making Docker container with ingest script
@@ -208,16 +208,16 @@ Running docker container with arguments for ingest script in pg-network
 
 `URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"`
         
-`docker run -it \`
-		`--network=pg-network \`
-		`taxi_ingest:v001 \`
-		`--user=root \`
-		`--password=root \`
-		`--host=pg-database \`
-		`--port=5432 \`
-		`--db=ny_taxi \`
-		`--table_name=yellow_taxi_data \`
-		`--url=${URL}`
+	docker run -it \
+		--network=pg-network \
+		taxi_ingest:v001 \
+			--user=root \
+			--password=root \
+			--host=pg-database \
+			--port=5432 \
+			--db=ny_taxi \
+			--table_name=yellow_taxi_data \
+			--url=${URL}
 
 ####Docker Compose
 

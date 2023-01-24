@@ -1,4 +1,4 @@
-### Data Talk Clube Data Engeniering Zoomcamp
+### Data Talk Club Data Engeniering Zoomcamp
 
 [Week 1: Introduction & Prerequisites](https://github.com/twistby/dtc_de_course/tree/main/week_1_basics_and_setup)
 

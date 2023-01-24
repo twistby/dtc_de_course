@@ -266,10 +266,10 @@ Removing stoped docker-compose conteiners
 I am familiar with SQL, so I do not need to take notes on how to work with it.
 
 ## Documentation
-https://docs.docker.com/get-started/overview/
-https://docs.docker.com/compose/compose-file/
-https://www.postgresql.org/docs/current/index.html
-https://www.pgadmin.org/docs/pgadmin4/latest/index.html
+- https://docs.docker.com/get-started/overview/
+- https://docs.docker.com/compose/compose-file/
+- https://www.postgresql.org/docs/current/index.html
+- https://www.pgadmin.org/docs/pgadmin4/latest/index.html
 
 
 

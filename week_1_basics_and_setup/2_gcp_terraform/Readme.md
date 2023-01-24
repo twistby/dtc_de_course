@@ -130,7 +130,8 @@ In ~
 `nano .bashrc`
 
 at the end of file add 
-    "export PATH=${HOME}/bin:${PATH}"
+
+	export PATH=${HOME}/bin:${PATH}
 
 CTRL+O to save
 CTRL+X to exit

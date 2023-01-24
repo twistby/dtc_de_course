@@ -99,7 +99,7 @@ After that we can connect to instance with
 
 To apply changes after installation
 
-    `source .bashrc`
+`source .bashrc`
 
 or logout and login
 
@@ -159,21 +159,27 @@ Installing unzip
 
 Setting up service account key in instance and authentification
 
-Using SFTP
-        
-        `sftp de-zoomcamp`
+Copy the key file using SFTP
 
-        `put project_key.json`
+`sftp de-zoomcamp`
+
+`put project_key.json`
+
+Adding a variable
 
 `export GOOGLE_APPLICATION_CREDENTIALS=~/.gs/lithe-vault-375510-9fb095e6d9fb.json`
+
+Connecting 
 
 `gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS`
 
 
 Cloning my de-course repo 
+
 `git clone https://github.com/twistby/dtc_de_course.git`
 
 Run terraform
+
 `terrform init`
 
 `terrform plan`

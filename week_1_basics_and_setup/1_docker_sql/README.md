@@ -15,7 +15,7 @@ Why we should use a docker:
    - Serverless (Azure function, AWS Lambda, Google function)
 
 
-####Tasks:
+#### Tasks:
    - Create a container based on Ubuntu and install python, pandas and the postgres connection library inside the container, necessary for the date pipline.
    - Create a Postgres container for database. Connect with Postgres database in container from local machine via pgcli
    - Create container with pgAdmin. Connect with database container. Run pgAdmin on local machine.
@@ -40,7 +40,7 @@ Why we should use a docker:
 
 **Every time we start the container, it starts with a clean slate. No changes created during the previous start-up are saved.**
 
-####Python container
+#### Python container
 To create Python container we run
 
 `docker ru -it python:3.9.1`
@@ -52,7 +52,7 @@ To create Python container we run
 
 **We can install pandas in container in -it mode. But this will have no effect the next time you start the container.**
 
-####Dockerfile
+#### Dockerfile
 A **Dockerfile** is a text document that contains all the commands a user could call on the command line to assemble a container
 
 To install pandas in container we use next Dockerfile:
@@ -132,7 +132,7 @@ Runnig PGAdmin container
 Running PGAdmin in local browser: localhost:8080
 
 
-####Docker network
+#### Docker network
 
 PGAdmin cannot connect to the base because it is trying to find the base in its container. To fix this we need to put the database container and PGAdmin on the same network
 
@@ -184,7 +184,7 @@ To pass to the script arguments using argparse
 			--url=${URL}
 
 
-####Making Docker container with ingest script
+#### Making Docker container with ingest script
 
 Changing Dockerfile 
 
@@ -219,7 +219,7 @@ Running docker container with arguments for ingest script in pg-network
 			--table_name=yellow_taxi_data \
 			--url=${URL}
 
-####Docker Compose
+#### Docker Compose
 
 **Docker Compose** is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application's services.
 
@@ -229,23 +229,23 @@ Creating docker-compose.yaml for PostgreSQL and PGAdmin
     	pgdatabase:
                 image: postgres:13
                 environment:
-                - name=value
-                - POSTGRES_USER=root
-                - POSTGRES_PASSWORD=root
-                - POSTGRES_DB=ny_taxi
+					- name=value
+					- POSTGRES_USER=root
+					- POSTGRES_PASSWORD=root
+					- POSTGRES_DB=ny_taxi
                 volumes:
-                - ./ny-taxi-volume:/var/lib/postgresql/data:rw
+					- ./ny-taxi-volume:/var/lib/postgresql/data:rw
                 ports:
-                - "5432:5432"
+					- "5432:5432"
             pgadmin:
                 image: dpage/pgadmin4
                 environment:
-                - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-                - PGADMIN_DEFAULT_PASSWORD=root
+					- PGADMIN_DEFAULT_EMAIL=admin@admin.com
+					- PGADMIN_DEFAULT_PASSWORD=root
                 volumes:
-                - ./data_pgadmin:/var/lib/pgadmin:rw
+					- ./data_pgadmin:/var/lib/pgadmin:rw
                 ports:
-                - "8080:80"
+					- "8080:80"
 
 Running docker-compose
    `docker-compose up`
@@ -265,8 +265,15 @@ Removing stoped docker-compose conteiners
 ##2. SQL
 I am familiar with SQL, so I do not need to take notes on how to work with it.
 
+## Documentation
+https://docs.docker.com/get-started/overview/
+https://docs.docker.com/compose/compose-file/
+https://www.postgresql.org/docs/current/index.html
+https://www.pgadmin.org/docs/pgadmin4/latest/index.html
 
-##Homework
+
+
+## Homework
 
 For homework I used the green taxi trips from January 2019 and dataset with zones
 

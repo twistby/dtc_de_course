@@ -73,3 +73,63 @@ We creating block with *SQLAlchemy Connector* to use it in code as sql-engine.
     database_block = SqlAlchemyConnector.load("postgres-connector")    
     with database_block.get_connection(begin=False) as engine:
 		...
+
+
+
+
+### ETL with GCP & Prefect
+
+To register GCP blocks
+  `prefect block register -m prefect_gcp`
+
+**Part 1**
+
+ 
+1. Load csv file from web to DataFrame
+
+		pd.read_csv(file_url)
+
+2. Clean data
+
+3. Write data localy in parquet file
+
+		df.to_parquet(path, compression='gzip')
+
+4. Load parquet file in Google Cloud Storage
+
+- in Orion UI
+
+	- create GCP Credentials block
+	- create GCS Bucket block
+	- add GCP Credentials in GCS Bucket
+
+  
+- in code 
+
+		gcs_buck = GcsBucket.load("block-name")
+		gcs_buck.upload_from_path(from_path=local_path, to_path=gcs_path)	
+
+**Part 2**
+
+1. Load parquet file from Google Cloud Storage to local directory
+
+		gcs_block.get_directory(from_path=gsc_path, local_path=local_path)
+
+  
+2. Load data from parquet file to pd.DataFrame
+
+		df = pd.read_parquet(path)
+
+  
+
+3. Load pd.DataFrame to BigQuery
+
+		gcp_credentials_block = GcpCredentials.load("doc-gcp-creds")
+
+		df.to_gbq(
+			destination_table='dtc_zoomcamp.trips',
+			project_id='lithe-vault-375510',
+			credentials=gcp_credentials_block.get_credentials_from_service_account(),
+			chunksize=500_000,
+			if_exists='append'
+		)

@@ -19,9 +19,9 @@ def main(params):
     table_name = params.table_name
     url = params.url
 
-    csv_name = 'outpoot.csv'
+    csv_name = 'output.csv'
     if url.endswith('gz'):
-        csv_name = 'outpoot.csv.gz'
+        csv_name = 'output.csv.gz'
 
     os.system(f"wget {url} -O {csv_name}")
 

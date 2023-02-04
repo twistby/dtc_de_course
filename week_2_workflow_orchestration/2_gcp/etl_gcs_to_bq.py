@@ -15,8 +15,9 @@ def extract_from_gcs(color: str, year: int, month: int) -> Path:
     gcs_block = GcsBucket.load("dtc-gcs")
 
     absolute_path = os.path.dirname(__file__)
-    relative_path = f'data/{color}'
+    relative_path = f'data/from_gcs'
     full_path = os.path.join(absolute_path, relative_path)
+
 
     gcs_block.get_directory(from_path=gsc_path, local_path=full_path)
 

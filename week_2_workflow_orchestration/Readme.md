@@ -127,9 +127,15 @@ To register GCP blocks
 		gcp_credentials_block = GcpCredentials.load("doc-gcp-creds")
 
 		df.to_gbq(
-			destination_table='dtc_zoomcamp.trips',
-			project_id='lithe-vault-375510',
+			destination_table='database_name.table_name',
+			project_id='GCP project ID',
 			credentials=gcp_credentials_block.get_credentials_from_service_account(),
 			chunksize=500_000,
 			if_exists='append'
 		)
+
+
+Prefect flow deployment using CLI
+
+1. Build 
+        prefect deployment build ./parameterized_flow.py:etl_parent_flow -n "Parameterized ETL"

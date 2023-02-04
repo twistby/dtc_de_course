@@ -1,6 +1,7 @@
 *.csv
 *.gz
 *.DS_Store
+*.pyc
 
 week_1_basics_and_setup/1_docker_sql/.ipynb_checkpoints
 week_1_basics_and_setup/1_docker_sql/data_pgadmin

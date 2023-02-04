@@ -8,10 +8,7 @@ from time import time
 import pandas as pd
 from prefect import flow, task
 from prefect.tasks import task_input_hash
-from sqlalchemy import create_engine
 from prefect_sqlalchemy import SqlAlchemyConnector
-
-
 
 
 @task(log_prints=True, retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))

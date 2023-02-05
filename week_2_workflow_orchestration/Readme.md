@@ -141,7 +141,7 @@ To register GCP blocks
 
 1. Build
 
-		prefect deployment build ./parameterized_flow.py:etl_parent_flow -n "Parameterized ETL"
+		prefect deployment build ./file_name.py:flow_name_in_file -n "Deployment name"
 
   
 

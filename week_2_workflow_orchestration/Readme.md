@@ -135,7 +135,93 @@ To register GCP blocks
 		)
 
 
-Prefect flow deployment using CLI
+### Prefect flow deployment using CLI
 
-1. Build 
-        prefect deployment build ./parameterized_flow.py:etl_parent_flow -n "Parameterized ETL"
+  
+
+1. Build
+
+		prefect deployment build ./parameterized_flow.py:etl_parent_flow -n "Parameterized ETL"
+
+  
+
+We can change default parameters in flow_name-deployment.yaml file in section "parameters"
+
+	parameters: {"color": "yellow", "year": 2021, "months": [2, 3]}
+
+  
+
+2. Apply
+
+		prefect deployment apply etl_parent_flow-deployment.yaml
+
+  
+
+3. Start
+ 
+Run the agent:
+		
+	prefect agent start --work-queue "default"
+
+  
+Run deployment from UI or from CLI:
+
+	prefect deployment run "Deployment name" -p "parameters for flow"
+
+  
+  
+
+### Prefect flow deployment using Docker and Python script
+
+  
+
+1. Create docker image from dockerfile:
+
+		FROM prefecthq/prefect:2.7.11-python3.11
+
+		COPY docker-requirements.txt .
+
+		RUN pip install -r docker-requirements.txt --trusted-host pypi.python.org --no-cache-dir
+
+		RUN mkdir -p /opt/prefect/data/yellow
+
+		COPY 3_deployment /opt/prefect/flows/
+
+  
+2. Create Docker Container Block in UI
+
+ 
+3. Create python script:
+
+  
+
+		from prefect.infrastructure.docker import DockerContainer
+
+		from prefect.deployments import Deployment
+
+		from parameterized_flow import etl_parent_flow
+		  
+
+		docker_block = DockerContainer.load("dtc") #Load docker-container block with link to docker image made befor
+		  
+
+		docker_dep = Deployment.build_from_flow(
+
+		flow=etl_parent_flow, # flow name in parameterized_flow.py
+
+		name='doker-flow', # name of deployment
+
+		infrastructure=docker_block # docker block
+
+		)
+		  
+		  
+
+		if __name__ == '__main__':
+			docker_dep.apply() # aplying parameters and creating deployment
+
+  
+
+4. Run flow in docker container
+
+		prefect deployment run "Deployment name" -p "parameters for flow"

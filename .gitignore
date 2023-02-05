@@ -2,10 +2,11 @@
 *.gz
 *.DS_Store
 *.pyc
-
+__pycache__
 week_1_basics_and_setup/1_docker_sql/.ipynb_checkpoints
 week_1_basics_and_setup/1_docker_sql/data_pgadmin
 week_1_basics_and_setup/1_docker_sql/ny-taxi-volume
 week_1_basics_and_setup/2_gcp_terraform/terraforms/variables.tf
 week_1_basics_and_setup/2_gcp_terraform/terraforms/.terraform
 week_2_workflow_orchestration/2_gcp/data/
+week_2_workflow_orchestration/.DS_Store

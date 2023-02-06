@@ -8,3 +8,14 @@
 - Setting up infrastructure on GCP with Terraform
 - Preparing the environment for the course
 - Homework
+
+
+[Week 2: Workflow Orchestration](https://github.com/twistby/dtc_de_course/tree/main/week_2_workflow_orchestration)
+
+- Data Lake
+- Workflow orchestration
+- Introduction to Prefect
+- ETL with GCP & Prefect
+- Parametrizing workflows
+- Prefect Cloud and additional resources
+- Homework

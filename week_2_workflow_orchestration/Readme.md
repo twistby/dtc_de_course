@@ -225,3 +225,15 @@ Run deployment from UI or from CLI:
 4. Run flow in docker container
 
 		prefect deployment run "Deployment name" -p "parameters for flow"
+
+
+Cron time format
+
+`15 22 28 * *` - every 28 day in every month in 22:15
+
+first digit - minutes (0-59)
+second digit - hours (0-23)
+third digit - day of month (1-31)
+fourth digit - month (1-12)
+last digit - day of the week (0-6 - Sunday to Saturday, 7 - Sunday on some systems) 
+

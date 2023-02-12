@@ -20,7 +20,7 @@
 - Prefect Cloud and additional resources
 - Homework
 
-[Week 3: Data Warehouse](https://github.com/twistby/dtc_de_course/tree/main/week_2_workflow_orchestration)
+[Week 3: Data Warehouse](https://github.com/twistby/dtc_de_course/tree/main/week_3_data_warehouse)
 
 - Data Warehouse
 - BigQuery

@@ -1,0 +1,62 @@
+###
+### A complete description of a Prefect Deployment for flow 'gcs-to-bq-parent-flow'
+###
+name: Homework Q3
+description: Parent flow.
+version: 905eb2ff0d1591e0bce98e667a045d19
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: default-agent-pool
+tags: []
+parameters: {}
+schedule: null
+is_schedule_active: true
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: gcs-to-bq-parent-flow
+manifest_path: null
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  _block_document_id: c46cb120-519f-48c7-ae70-59eafa2e7da4
+  _block_document_name: anonymous-b519749e-890c-400a-917f-8c2ccb2ca91f
+  _is_anonymous: true
+  block_type_slug: process
+  _block_type_slug: process
+storage: null
+path: /Users/andrey/git/dtc_de_course/week_2_workflow_orchestration/Homework
+entrypoint: etl_gcs_to_bq.py:gcs_to_bq_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    color:
+      title: color
+      default: yellow
+      position: 0
+      type: string
+    year:
+      title: year
+      default: 2020
+      position: 1
+      type: integer
+    months:
+      title: months
+      default:
+      - 1
+      - 2
+      position: 2
+      type: array
+      items:
+        type: integer
+  required: null
+  definitions: null
+timestamp: '2023-02-05T18:24:16.598318+00:00'

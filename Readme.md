@@ -19,3 +19,13 @@
 - Parametrizing workflows
 - Prefect Cloud and additional resources
 - Homework
+
+[Week 3: Data Warehouse](https://github.com/twistby/dtc_de_course/tree/main/week_2_workflow_orchestration)
+
+- Data Warehouse
+- BigQuery
+- Partitioning and clustering
+- BigQuery best practices
+- Internals of BigQuery
+- Integrating BigQuery with Airflow
+- BigQuery Machine Learning
